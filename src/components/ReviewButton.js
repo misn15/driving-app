@@ -6,15 +6,16 @@ import '../App.css';
 
 function ReviewButton() {
     const [showForm, setShowForm] = useState(false);
+    const [showButton, setShowButton] = useState(true);
 
     const handleClick = () => {
         setShowForm(!showForm);
+        setShowButton(!showButton);
       };
 
     return (
-        <div className='Review-button'>
-            <Button onClick={handleClick} variant="primary"> Write a Review</Button>
-
+        <div>
+            {showButton && <Button onClick={handleClick} variant="primary"> Write a Review</Button>}
             {showForm && (
                 <NewPost/>
             )}
